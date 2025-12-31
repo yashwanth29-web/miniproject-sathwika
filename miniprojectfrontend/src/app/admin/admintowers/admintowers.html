@@ -1,0 +1,104 @@
+<div class="admin-dashboard">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h2>Current Towers</h2>
+    <button class="primary-btn" (click)="showAddTower = !showAddTower">
+      {{ showAddTower ? 'Close Form' : '+ Add Tower' }}
+    </button>
+  </div>
+
+  <!-- ADD TOWER -->
+  <form *ngIf="showAddTower" #towerForm="ngForm"
+        (ngSubmit)="addTower(towerForm)"
+        class="card form-card">
+    <h3>Add Tower</h3>
+    <input name="tower_name" ngModel placeholder="Tower Name" required />
+    <input name="no_of_floors" ngModel type="number" placeholder="Floors" required />
+    <input name="no_of_flats" ngModel type="number" placeholder="Flats" required />
+    <input name="area" ngModel placeholder="Area" required />
+    <button class="success-btn">Save Tower</button>
+  </form>
+
+  <!-- TOWERS -->
+  <div *ngIf="towers !== null">
+    <div *ngFor="let tower of towers; trackBy: trackByTowerId"
+         class="card tower-card">
+
+      <div class="tower-header">
+        <h3>{{ tower.tower_name }}</h3>
+        <button class="danger-btn" (click)="deleteTower(tower.tower_id)">Delete</button>
+      </div>
+
+      <p><strong>Floors:</strong> {{ tower.no_of_floors }}</p>
+      <p><strong>Flats:</strong> {{ tower.no_of_flats }}</p>
+      <p><strong>Area:</strong> {{ tower.area }}</p>
+
+      <div class="action-row">
+        <button (click)="openFlatForm(tower)">Add Flat</button>
+        <button (click)="openAmenityForm(tower)">Add Amenity</button>
+        <button (click)="loadFlats(tower.tower_id)">View Flats</button>
+        <button (click)="loadAmenities(tower.tower_id)">View Amenities</button>
+      </div>
+
+      <!-- ADD FLAT -->
+      <form *ngIf="activeTowerForFlat?.tower_id === tower.tower_id"
+            #flatForm="ngForm"
+            (ngSubmit)="addFlat(flatForm)"
+            class="inner-form">
+        <h4>Add Flat</h4>
+        <input name="flat_number" ngModel type="number" placeholder="Flat No" required />
+        <input name="rent" ngModel type="number" placeholder="Rent" required />
+        <select name="availability" ngModel required>
+          <option value="available">Available</option>
+          <option value="booked">Occupied</option>
+        </select>
+        <button class="success-btn">Save Flat</button>
+      </form>
+
+      <!-- ADD AMENITY -->
+      <form *ngIf="activeTowerForAmenity?.tower_id === tower.tower_id"
+            #amenityForm="ngForm"
+            (ngSubmit)="addAmenity(amenityForm)"
+            class="inner-form">
+        <h4>Add Amenity</h4>
+        <input name="amenity_name" ngModel placeholder="Amenity Name" required />
+        <input name="description" ngModel placeholder="Description" required />
+        <button class="success-btn">Save Amenity</button>
+      </form>
+
+      <!-- FLATS -->
+      <div *ngIf="flatsByTower[tower.tower_id]" class="section">
+        <h4>Flats</h4>
+        <p *ngIf="flatsByTower[tower.tower_id].length === 0">No flats available</p>
+        <div *ngFor="let flat of flatsByTower[tower.tower_id]" class="flat-card">
+          <input [(ngModel)]="flat.flat_number" [disabled]="!flat.isEditing" />
+          <input [(ngModel)]="flat.rent" [disabled]="!flat.isEditing" />
+          <select [(ngModel)]="flat.availability" [disabled]="!flat.isEditing">
+            <option value="available">Available</option>
+            <option value="leased">leased</option>
+            <option value="booked">payment needed</option>
+
+          </select>
+          <button class="success-btn" *ngIf="!flat.isEditing" (click)="flat.isEditing = true">Edit</button>
+          <button class="success-btn" *ngIf="flat.isEditing" (click)="updateFlat(flat)">Save</button>
+          <button class="danger-btn" (click)="deleteFlat(flat.flat_id, tower.tower_id)">Delete</button>
+        </div>
+      </div>
+
+      <!-- AMENITIES -->
+      <div *ngIf="amenitiesByTower[tower.tower_id]" class="section">
+        <h4>Amenities</h4>
+        <p *ngIf="amenitiesByTower[tower.tower_id].length === 0">No amenities available</p>
+        <div *ngFor="let amenity of amenitiesByTower[tower.tower_id]" class="amenity-card">
+          <input [(ngModel)]="amenity.amenity_name" [disabled]="!amenity.isEditing" />
+          <input [(ngModel)]="amenity.description" [disabled]="!amenity.isEditing" />
+          <button class="success-btn" *ngIf="!amenity.isEditing" (click)="amenity.isEditing = true">Edit</button>
+          <button class="success-btn" *ngIf="amenity.isEditing" (click)="updateAmenity(amenity)">Save</button>
+          <button class="danger-btn" (click)="deleteAmenity(amenity.amenity_id, tower.tower_id)">Delete</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

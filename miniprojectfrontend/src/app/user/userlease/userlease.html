@@ -1,0 +1,58 @@
+<div>
+
+  <h2 class="page-title">📄 My Leases</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="info-text">
+    Loading leases...
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && leases.length === 0" class="info-text">
+    You have no leases yet.
+  </div>
+
+  <!-- Table -->
+  <div class="table-card" *ngIf="!loading && leases.length > 0">
+    <table class="leases-table">
+
+      <thead>
+        <tr>
+          <th>Lease ID</th>
+          <th>Flat No</th>
+          <th>Tower</th>
+          <th>Booking ID</th>
+          <th>Rent (₹)</th>
+          <th>Status</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let l of leases">
+          <td>{{ l.lease_id }}</td>
+          <td>{{ l.flat_number }}</td>
+          <td>{{ l.tower_name }}</td>
+          <td>{{ l.booking_id }}</td>
+          <td>₹ {{ l.rent }}</td>
+
+          <td>
+            <span
+              class="status-pill"
+              [class.active]="l.lease_status === 'active'"
+              [class.terminated]="l.lease_status === 'terminated'"
+            >
+              {{ l.lease_status }}
+            </span>
+          </td>
+
+          <td>{{ l.start_date || 'N/A' }}</td>
+          <td>{{ l.end_date || 'N/A' }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

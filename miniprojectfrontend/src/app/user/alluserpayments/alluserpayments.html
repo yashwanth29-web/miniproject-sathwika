@@ -1,0 +1,45 @@
+<div>
+
+  <h2 class="page-title">💳 My Payments</h2>
+
+  <div *ngIf="loading" class="loader">
+    Loading payments...
+  </div>
+
+  <p *ngIf="!loading && payments.length === 0" class="empty-text">
+    No payments found.
+  </p>
+
+  <div *ngIf="payments.length > 0 && !loading" class="table-container">
+    <table class="payments-table">
+      <thead>
+        <tr>
+          <th>Payment ID</th>
+          <th>Booking ID</th>
+          <th>Flat number</th>
+          <th>Amount (₹)</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of payments">
+          <td>{{ p.payment_id }}</td>
+          <td>{{ p.booking_id }}</td>
+<td>{{ p.flat_number }}</td>
+          <td>₹ {{ p.amount }}</td>
+          <td>
+            <span
+              class="status"
+              [class.completed]="p.payment_status === 'completed'"
+              [class.pending]="p.payment_status === 'pending'"
+            >
+              {{ p.payment_status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

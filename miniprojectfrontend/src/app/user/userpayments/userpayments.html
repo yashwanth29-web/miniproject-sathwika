@@ -1,0 +1,68 @@
+<div class="payment-container">
+
+  <h2 class="page-title">💳 Payment</h2>
+
+  <!-- Loader -->
+  <div *ngIf="loading" class="loader">
+    Processing payment...
+  </div>
+
+  <!-- No payment yet -->
+  <button
+    *ngIf="!paymentId && !loading"
+    (click)="initiatePayment()"
+    class="primary-btn"
+  >
+    Initiate Payment
+  </button>
+
+  <!-- Payment exists -->
+  <div *ngIf="paymentId && !loading" class="payment-card">
+
+    <p class="payment-row">
+      <strong>Amount:</strong>
+      <span>₹{{ amount }}</span>
+    </p>
+
+    <p class="payment-row">
+      <strong>Status:</strong>
+      <span
+        class="status"
+        [ngClass]="paymentStatus"
+      >
+        {{ paymentStatus }}
+      </span>
+    </p>
+
+    <!-- Pending -->
+    <button
+      *ngIf="paymentStatus === 'pending'"
+      (click)="confirmPayment()"
+      class="success-btn"
+    >
+      Confirm Payment
+    </button>
+
+    <!-- Completed -->
+    <div *ngIf="paymentStatus === 'completed'" class="success-message">
+      ✅ Payment completed<br />
+      📄 Lease has been created
+    </div>
+
+  </div>
+
+  <!-- Post-payment actions -->
+  <div
+    *ngIf="paymentStatus === 'completed'"
+    class="action-buttons"
+  >
+    <button (click)="viewLease()" class="secondary-btn">
+      View Lease
+    </button>
+
+    <button (click)="viewpayments()" class="secondary-btn">
+      View All Payments
+    </button>
+  </div>
+
+</div>

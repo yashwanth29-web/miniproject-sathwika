@@ -1,0 +1,92 @@
+<div>
+
+  <h2 class="page-title">📘 My Bookings</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="info-text">
+    Loading your bookings...
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && bookings.length === 0" class="info-text">
+    You have no bookings
+  </div>
+
+  <!-- Table -->
+  <div class="table-card" *ngIf="!loading && bookings.length > 0">
+    <table class="bookings-table">
+
+      <thead>
+        <tr>
+          <th>Booking ID</th>
+          <th>Flat No</th>
+          <th>Tower</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let b of bookings">
+
+          <td>{{ b.booking_id }}</td>
+          <td>{{ b.flat_number }}</td>
+          <td>{{ b.tower_name }}</td>
+
+          <td>
+            <span
+              class="status-pill"
+              [ngClass]="{
+                approved: b.booking_status === 'approved',
+                rejected: b.booking_status === 'rejected',
+                pending: b.booking_status !== 'approved' && b.booking_status !== 'rejected'
+              }"
+            >
+              {{ b.booking_status || 'requested' }}
+            </span>
+          </td>
+
+          <!-- ACTION COLUMN -->
+          <td>
+
+            <!-- PAID -->
+            <span
+              *ngIf="paidBookings.includes(b.booking_id)"
+              class="paid-text"
+            >
+              Paid
+            </span>
+
+            <!-- PAY NOW -->
+            <button
+              *ngIf="
+                b.booking_status === 'approved' &&
+                !paidBookings.includes(b.booking_id)
+              "
+              class="pay-btn"
+              (click)="payNow(b.booking_id)"
+            >
+              Pay Now
+            </button>
+
+            <!-- OTHERS -->
+            <span
+              *ngIf="
+                b.booking_status !== 'approved' &&
+                !paidBookings.includes(b.booking_id)
+              "
+              class="dash-text"
+            >
+              —
+            </span>
+
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

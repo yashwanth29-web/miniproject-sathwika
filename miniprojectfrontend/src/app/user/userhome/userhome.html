@@ -1,0 +1,27 @@
+<div class="user-dashboard">
+
+ <header class="top-nav">
+    <div class="logo">GoRent</div>
+    <div class="nav-actions">
+      <span class="welcome">Welcome, {{ username }}</span>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <aside class="sidebar" class="side-nav">
+      <a routerLink="/user/" routerLinkActive="active">Explore</a>
+      <a routerLink="/user/leases" routerLinkActive="active">My Leases</a>
+      <a routerLink="/user/allpayments" routerLinkActive="active">My Payments</a>
+      <a routerLink="/user/mybookings" routerLinkActive="active">My Bookings</a>
+      <a routerLink="/user/feedback" routerLinkActive="active">Submit Feedback</a>
+
+    </aside>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>

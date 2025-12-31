@@ -1,0 +1,85 @@
+.leases-wrapper {
+  padding: 20px;
+  height: 100%;
+  background: #f7f8fa;
+}
+
+.page-title {
+  text-align: center;
+  color: #1f2933;
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.info-text {
+  text-align: center;
+  color: #475569;
+  font-size: 16px;
+}
+
+.table-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.leases-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leases-table thead {
+  background: #1e293b;
+  color: white;
+}
+
+.leases-table th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.leases-table td {
+  padding: 14px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.leases-table tbody tr:hover {
+  background: #f1f5f9;
+}
+
+.status-pill {
+  background: #e6f4ea;
+  color: #1f6b43;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-block;
+}
+.leases-wrapper {
+  background: #eef3f4;
+}
+
+.table-card {
+  background: #f7f7f5;
+}
+
+.leases-table thead {
+ background:#2f5f68;
+  color: white;
+}
+
+.leases-table td {
+  border-bottom: 1px solid #e3ecee;
+}
+
+.leases-table tbody tr:hover {
+  background: #eef3f4;
+}
+
+.status-pill {
+  background: #dfecee;
+  color: #2f5f68;
+}

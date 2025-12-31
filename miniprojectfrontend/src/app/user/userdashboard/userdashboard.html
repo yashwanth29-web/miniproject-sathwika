@@ -1,0 +1,77 @@
+
+<h1 class="page-title"> All Towers and Flats</h1>
+
+<div class = "towers-grid">
+<div *ngFor="let tower of towers" class="tower-card">
+
+ <div class="tower-image-wrapper">
+  <img
+    src="https://www.adanirealty.com/-/media/project/realty/residential/mumbai/9pbr/carousel-images/outdoor/outdoor-2-desktop.ashx"
+    alt="Tower Image"
+    class="tower-image"
+  />
+</div>
+
+  <div class="tower-header">
+    <h3>{{ tower.tower_name }}</h3>
+    <p class="area-text">{{ tower.area }}</p>
+  </div>
+
+  <div class="tower-actions">
+    <button class="action-btn" (click)="showAvailableFlats(tower.tower_id)">
+      Show Available Flats
+    </button>
+    <button class="action-btn outline" (click)="showAmenities(tower.tower_id)">
+      Show Amenities
+    </button>
+  </div>
+
+  <!-- Flats -->
+  <div *ngIf=" availableFlats[tower.tower_id] && availableFlats[tower.tower_id].length > 0" class="section-box">
+    <h4>Available Flats</h4>
+    <div class="flats-grid">
+      <div *ngFor="let flat of availableFlats[tower.tower_id]" class="flat-card">
+
+        <!-- Flat Image -->
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ1s5ehNnPNFvSyMrQslLtyEfbbeVs6Sc7DQ&s"
+          alt="Flat Image"
+          class="flat-image"
+        />
+
+        <p><strong>Flat:</strong> {{ flat.flat_number }}</p>
+        <p><strong>Rent:</strong> ₹{{ flat.rent }}</p>
+       <button class="book-btn"
+        [disabled]="userBookings.includes(flat.flat_id)"
+        (click)="bookFlat(flat)">
+  {{ userBookings.includes(flat.flat_id) ? 'Booked' : 'Book' }}
+</button>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf=" availableFlats[tower.tower_id] && availableFlats[tower.tower_id].length === 0 && !loadingFlats[tower.tower_id]" class="info-text">
+    No flats available.
+  </div>
+
+  <!-- Amenities (unchanged) -->
+  <div *ngIf="loadingAmenities[tower.tower_id]" class="info-text">
+    Loading amenities...
+  </div>
+
+  <div *ngIf="amenities[tower.tower_id] && amenities[tower.tower_id].length > 0" class="section-box">
+    <h4>Amenities</h4>
+    <ul class="amenities-list">
+      <li *ngFor="let a of amenities[tower.tower_id]">
+        <strong>{{ a.amenity_name }}</strong> — {{ a.description }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="amenities[tower.tower_id] && amenities[tower.tower_id].length === 0 && !loadingAmenities[tower.tower_id]" class="info-text">
+    No amenities available.
+  </div>
+
+</div>
+</div>

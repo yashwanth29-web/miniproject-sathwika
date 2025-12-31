@@ -1,0 +1,56 @@
+h2 {
+  font-family: "Playfair Display", serif;
+  color: #2f2f2f;
+  margin-bottom: 16px;
+}
+
+div[ng-reflect-ng-if] {
+  background: #f7f7f5;
+  padding: 14px 18px;
+  border-radius: 14px;
+  color: #6f6f6f;
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f7f7f5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.05);
+}
+
+th {
+  background: #eef3f4;
+  padding: 14px 16px;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e3ecee;
+}
+
+tbody tr:hover td {
+  background: #eef3f4;
+}
+
+td button {
+  padding: 8px 16px;
+  margin: 5px 4px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+td button:first-child {
+  background: #2f5f68;
+  color: #ffffff;
+}
+
+td button:last-child {
+  background: #e3ecee;
+  color: #2f2f2f;
+}

@@ -1,0 +1,26 @@
+<h2>Pending Bookings</h2>
+
+<div *ngIf="bookings.length == 0">
+  No pending bookings
+</div>
+
+<table *ngIf="bookings.length > 0" border="1" cellpadding="8">
+  <tr>
+    <th>Booking ID</th>
+    <th>User ID</th>
+    <th>Flat ID</th>
+    <th>Tower ID</th>
+    <th>Action</th>
+  </tr>
+
+  <tr *ngFor="let b of bookings">
+    <td>{{ b.booking_id }}</td>
+    <td>{{ b.user_id }}</td>
+    <td>{{ b.flat_id }}</td>
+    <td>{{ b.tower_id }}</td>
+    <td>
+      <button (click)="updateStatus(b.booking_id, 'approved')">Approve</button>
+      <button (click)="updateStatus(b.booking_id, 'rejected')">Reject</button>
+    </td>
+  </tr>
+</table>

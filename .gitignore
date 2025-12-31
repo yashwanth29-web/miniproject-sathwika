@@ -1,0 +1,21 @@
+# Backend
+miniprojectbackend/.venv/
+miniprojectbackend/__pycache__/
+miniprojectbackend/models/__pycache__/
+miniprojectbackend/routes/__pycache__/
+miniprojectbackend/instance/
+*.pyc
+*.pyo
+
+# Frontend
+miniprojectfrontend/node_modules/
+miniprojectfrontend/dist/
+miniprojectfrontend/.angular/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

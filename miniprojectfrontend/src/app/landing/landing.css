@@ -1,0 +1,245 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-y: visible;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 22px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-left: 20px;
+  color: #2f5f68; /* teal */
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #374151;
+  margin-right: 20px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: #2f5f68;
+}
+
+/* ================= HERO ================= */
+.hero {
+  height: 89.8vh;
+  background-image: url("https://i.pinimg.com/736x/0b/d3/b7/0bd3b723d68b5696e51bd5ecbc2a61bd.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  z-index: -1;
+}
+
+.hero-overlay {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 40, 45, 0.4),
+    rgba(20, 40, 45, 0.75)
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* HERO TEXT */
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+  text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.hero-overlay h1:hover {
+  transform: scale(1.05);
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-bottom: 30px;
+  opacity: 0.92;
+}
+
+/* CTA */
+.cta-btn {
+  background-color: #2f5f68;
+  color: white;
+  border: none;
+  padding: 14px 34px;
+  font-size: 1.1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #244a52;
+  transform: scale(1.05);
+  box-shadow: 0 14px 30px rgba(47, 95, 104, 0.4);
+}
+
+/* ================= STATS ================= */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 70px 20px;
+  background: #f3f7f8;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.stats .stat h2 {
+  font-size: 2.5rem;
+  color: #2f5f68;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stats .stat h2:hover {
+  transform: scale(1.1);
+}
+
+.stats .stat p {
+  font-size: 1.1rem;
+  color: #4b5563;
+}
+
+/* ================= ADVANTAGES ================= */
+.advantages {
+  background: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.advantages h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1f2937;
+  font-family: "Playfair Display", serif;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.adv-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.adv-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.18);
+}
+
+.adv-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.adv-card h3 {
+  margin: 15px;
+  font-size: 1.5rem;
+  color: #2f5f68;
+}
+
+.adv-card p {
+  margin: 0 15px 15px;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+/* ================= WHY CHOOSE ================= */
+.why-choose {
+  background: #f3f7f8;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.why-choose h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: #1f2937;
+  font-family: "Playfair Display", serif;
+}
+
+.why-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.why-item {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  width: 150px;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.18);
+}
+
+.why-item p {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #4b5563;
+}

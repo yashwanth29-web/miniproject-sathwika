@@ -1,0 +1,100 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #eef3f4;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eef3f4;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: #2f2f2f;
+}
+
+/* ================= TOP NAV ================= */
+.top-nav {
+  height: 64px;
+  flex-shrink: 0;
+  background: #2f5f68;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-actions button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #f7f7f5;
+  color: #2f5f68;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nav-actions button:hover {
+  background: #e3ecee;
+}
+
+/* ================= BODY ================= */
+.dashboard-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ================= SIDEBAR ================= */
+.side-nav {
+  width: 220px;
+  background: #f7f7f5;
+  border-right: 1px solid #dde6e8;
+  padding: 24px 16px;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-nav a {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #2f2f2f;
+  font-weight: 500;
+}
+
+.side-nav a.active,
+.side-nav a:hover {
+  background: #2f5f68;
+  color: #ffffff;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  flex: 1;
+  padding: 28px;
+  overflow-y: auto;
+  min-height: 0;
+  background: #eef3f4;
+}

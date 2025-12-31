@@ -1,0 +1,36 @@
+  <div class="dashboard">
+
+    <!-- TOP NAV -->
+    <header class="top-nav">
+      <div class="logo">GoRent</div>
+      <div class="nav-actions">
+        <span class="welcome">Welcome, {{ username }}</span>
+        <button (click)="logout()">Logout</button>
+      </div>
+    </header>
+
+    <!-- BODY -->
+    <div class="dashboard-body">
+
+      <!-- SIDEBAR -->
+      <aside class="side-nav">
+        <ul>
+          <li>
+            <a routerLink="admintowers" routerLinkActive="active">Towers</a>
+          </li>
+          <li>
+            <a routerLink="adminbookings" routerLinkActive="active">Bookings</a>
+          </li>
+          <li>
+            <a routerLink="adminfeedback" routerLinkActive="active">see Feedback</a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <router-outlet></router-outlet>
+      </main>
+
+    </div>
+  </div>

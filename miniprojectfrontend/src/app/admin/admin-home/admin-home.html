@@ -1,0 +1,40 @@
+<div class="admin-feedback-container">
+
+  <h2 class="page-title">📋 All Feedbacks</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading-text">
+    Loading feedbacks...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="errorMsg" class="error-text">
+    {{ errorMsg }}
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="feedbacks.length === 0 && !loading" class="no-feedback">
+    No feedbacks yet.
+  </div>
+
+  <!-- Feedback List -->
+  <div *ngIf="feedbacks.length > 0" class="feedback-list">
+    <div class="feedback-card" *ngFor="let fb of feedbacks">
+
+      <h3 class="feedback-name">{{ fb.name }}</h3>
+
+      <p class="feedback-email">
+        📧 {{ fb.email }}
+      </p>
+
+      <p class="feedback-message">
+        {{ fb.message }}
+      </p>
+
+    </div>
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,134 @@
+.payment-container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  font-family: "Segoe UI", sans-serif;
+  color: #1f2933;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1f2933;
+}
+
+.loader {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.primary-btn {
+  background: #1e293b;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.success-btn {
+  background: #334155;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.payment-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 18px;
+  margin-top: 16px;
+}
+
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.status {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.status.pending {
+  color: #3730a3;
+}
+
+.status.completed {
+  color: #1f6b43;
+}
+
+.success-message {
+  margin-top: 14px;
+  padding: 12px;
+  background: #f1f5f9;
+  border: 1px solid #cfe0c9;
+  border-radius: 12px;
+  color: #1f6b43;
+  font-weight: 600;
+}
+
+.action-buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.payment-container,
+.payment-card {
+  background: #f7f7f5;
+  border: 1px solid #dde6e8;
+}
+
+.page-title,
+.payment-row,
+.status {
+  color: #2f2f2f;
+}
+
+.primary-btn {
+  background: #2f5f68;
+}
+
+.primary-btn:hover {
+  background: #244a52;
+}
+
+.success-btn {
+  background: #5fa8a3;
+}
+
+.secondary-btn {
+  background: #eef3f4;
+  color: #2f5f68;
+}
+
+.success-message {
+  background: #eef3f4;
+  color: #2f5f68;
+}
