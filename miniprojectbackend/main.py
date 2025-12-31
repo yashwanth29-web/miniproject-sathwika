@@ -21,7 +21,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=30)
 
-CORS(app, origins="http://localhost:4200") 
+CORS(app, origins="*") 
 migrate = Migrate(app, db)  
 db.init_app(app)
 jwt = JWTManager(app)
